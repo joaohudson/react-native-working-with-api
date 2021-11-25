@@ -39,6 +39,7 @@ export default function App() {
     <SafeAreaView>
       <FlatList
         data={people}
+        keyExtractor={(item) => item.name.first + ' - ' + item.name.last }
         renderItem={
             ({item}) => {
               return (
