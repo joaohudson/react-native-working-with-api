@@ -52,7 +52,7 @@ export default function App() {
             return (
               <View style={styles.center}>
                 <Text style={styles.name}>
-                  List is empty!
+                  Empty
                 </Text>
               </View>
             )
