@@ -7,14 +7,14 @@ const delay = async (time) => {
   })
 }
 
-export default function App() {
+const usePeople = () => {
   const [loading, setLoading] = useState(true);
   const [people, setPeople] = useState([]);
 
   useEffect(async () => {
     //espera um segundo para exibir carregamento
     await delay(1000);
-    
+
     try{
       const response = await fetch('https://randomuser.me/api/?results=100&inc=name')
       const json = await response.json();
@@ -28,6 +28,12 @@ export default function App() {
       setLoading(false);
     }
   }, [])
+
+  return {people, loading};
+}
+
+export default function App() {
+  const {people, loading} = usePeople();
 
   return (
     <SafeAreaView>
